@@ -1,0 +1,39 @@
+<div class="box-body">
+
+  <div class="form-group col-xs-12 col-sm-2" >
+      <label>Tipo de Crédito</label>
+      <select class="form-control select-lista" ng-model="credCtrl.cicloId" ng-change="credCtrl.change()">
+        <option  ng-repeat="ciclo in credCtrl.cicloPagamentos | orderBy : 'mes' | orderBy : 'ano'" value="{{ciclo._id}}" >{{ciclo.nome}}</option>
+      </select>
+  </div>
+
+  <table class="table">
+      <thead>
+        <tr>
+          <th>Coletor</th>
+          <th>Tipo</th>
+          <th>Devedor</th>
+          <th>Status Crédito</th>
+          <th>Status Caixa</th>
+          <th>Data</th>
+          <th>Valor</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="credito in credCtrl.cicloAtual.creditos">
+          <td>{{credito.coletor}}</td>
+          <td>{{credito.tipo}}</td>
+          <td>{{credito.devedor}}</td>
+          <td>{{credito.status}}</td>
+          <td>{{credito.statusCaixa}}</td>
+          <td>{{credito.data | date: "dd/MM/yyyy"}}</td>
+          <td>{{credito.valor | currency : "R$ " : 2}}</td>
+          <td class="table-actions">
+            <button class="btn btn-warning" ng-click="credCtrl.showTabUpdate(credito)"><i class="fa fa-pencil"></i></button>
+            <button class="btn btn-danger" ng-click="credCtrl.showTabDelete(credito)"><i class="fa fa-trash-o"></i></button>
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</div>

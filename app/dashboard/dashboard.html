@@ -1,0 +1,14 @@
+
+<content-header titulo="Dashboard" subtitulo="Versão 1.0"></content-header>
+
+<section class="content" ng-controller="DashboardCtrl as Ctrl">
+  <value-box grid="12 4" color-class="bg-green" valor="R$ {{Ctrl.credito | number: 2}}"
+    texto="Total de Créditos" icon-class="fa fa-bank"></value-box>
+
+  <value-box grid="12 4" color-class="bg-red" valor="R$ {{Ctrl.debito | number: 2}}"
+    texto="Total de Débitos" icon-class="fa fa-credit-card"></value-box>
+
+  <value-box grid="12 4" color-class="bg-blue" valor="R$ {{Ctrl.consolidado | number: 2}}"
+    texto="Total Consolidado" icon-class="fa fa-money"></value-box>
+
+</section>
