@@ -7,7 +7,7 @@
   function DashboardController($http) {
     const vm = this
     vm.getSumario = function () {
-      const url = 'http://localhost:3000/api/cicloPagamentoSumario'
+      const url = 'http://localhost:3000/api/caixaSumario'
       $http.get(url).then(function (response) {
         const {credito, debito} = response.data
         vm.credito = credito

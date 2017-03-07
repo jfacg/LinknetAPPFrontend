@@ -1,37 +1,37 @@
-<content-header titulo="Crédito" subtitulo="Cadastro"></content-header>
+<content-header titulo="DÉBITO" subtitulo="Cadastro"></content-header>
 
 <section class="content" >
-  <div class="nav-tabs-custom" ng-controller="CreditoCtrl as credCtrl">
+  <div class="nav-tabs-custom" ng-controller="DebitoCtrl as debtCtrl">
     <ul class="nav nav-tabs">
-      <li ng-if="credCtrl.tabList" ng-class="{active: credCtrl.tabList}">
+      <li ng-if="debtCtrl.tabList" ng-class="{active: debtCtrl.tabList}">
         <a href data-target="#tabList" data-toggle="tab">
           <i class="fa fa-bars"></i> Lista
         </a>
       </li>
-      <li ng-if="credCtrl.tabCreate">
+      <li ng-if="debtCtrl.tabCreate">
         <a href data-target="#tabCreate" data-toggle="tab">
           <i class="fa fa-plus"></i> Incluir
         </a>
       </li>
-      <li ng-if="credCtrl.tabUpdate" ng-class="{active: credCtrl.tabUpdate}">
+      <li ng-if="debtCtrl.tabUpdate" ng-class="{active: debtCtrl.tabUpdate}">
         <a href data-target="#tabUpdate" data-toggle="tab">
           <i class="fa fa-pencil"></i> Alterar
         </a>
       </li>
-      <li ng-if="credCtrl.tabDelete" ng-class="{active: credCtrl.tabDelete}">
+      <li ng-if="debtCtrl.tabDelete" ng-class="{active: debtCtrl.tabDelete}">
         <a href data-target="#tabDelete" data-toggle="tab">
           <i class="fa fa-trash-o"></i> Excluir
         </a>
       </li>
     </ul>
     <div class="tab-content">
-      <div class="tab-pane" id="tabList" ng-include="'credito/list.html'" ng-if="credCtrl.tabList"
-          ng-class="{active: credCtrl.tabList}"></div>
-      <div class="tab-pane" id="tabCreate" ng-include="'credito/formCredito.html'" ng-if="credCtrl.tabCreate"></div>
-      <div class="tab-pane" id="tabUpdate" ng-include="'credito/formCredito.html'"
-          ng-class="{active: credCtrl.tabUpdate}" ng-if="credCtrl.tabUpdate"></div>
-      <div class="tab-pane" id="tabDelete" ng-include="'credito/formCredito.html'"
-          ng-class="{active: credCtrl.tabDelete}" ng-if="credCtrl.tabDelete"></div>
+      <div class="tab-pane" id="tabList" ng-include="'debito/listDebito.html'" ng-if="debtCtrl.tabList"
+          ng-class="{active: debtCtrl.tabList}"></div>
+      <div class="tab-pane" id="tabCreate" ng-include="'debito/formDebito.html'" ng-if="debtCtrl.tabCreate"></div>
+      <div class="tab-pane" id="tabUpdate" ng-include="'debito/formDebito.html'"
+          ng-class="{active: debtCtrl.tabUpdate}" ng-if="debtCtrl.tabUpdate"></div>
+      <div class="tab-pane" id="tabDelete" ng-include="'debito/formDebito.html'"
+          ng-class="{active: debtCtrl.tabDelete}" ng-if="debtCtrl.tabDelete"></div>
     </div>
   </div>
 </section>

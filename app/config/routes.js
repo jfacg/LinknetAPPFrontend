@@ -8,9 +8,9 @@ angular.module('linknetApp').config([
       url: "/dashboard",
       templateUrl: "dashboard/dashboard.html"
     })
-    .state('cicloPagamento', {
-      url: "/cicloPagamento",
-      templateUrl: "cicloPagamento/cicloPagamento.html"
+    .state('caixas', {
+      url: "/caixa",
+      templateUrl: "caixa/caixa.html"
     })
     .state('creditos', {
       url: "/credito",

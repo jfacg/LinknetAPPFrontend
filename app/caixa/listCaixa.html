@@ -1,0 +1,23 @@
+<div class="box-body">
+  <table class="table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Mês</th>
+          <th>Ano</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="caixa in caixaCtrl.caixas | orderBy : 'mes' | orderBy : 'ano'">
+          <td>{{caixa.nome}}</td>
+          <td>{{caixa.mes}}</td>
+          <td>{{caixa.ano}}</td>
+          <td class="table-actions">
+            <button class="btn btn-warning" ng-click="caixaCtrl.showTabUpdate(caixa)"><i class="fa fa-pencil"></i></button>
+            <button class="btn btn-danger" ng-click="caixaCtrl.showTabDelete(caixa)"><i class="fa fa-trash-o"></i></button>
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</div>

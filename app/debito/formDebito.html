@@ -2,49 +2,55 @@
       <div class="row">
         <div class="form-group col-xs-12 col-sm-3" >
             <label>Caixa</label>
-            <select class="form-control select-lista" ng-model="credCtrl.cicloId" ng-disabled="credCtrl.tabDelete">
-              <option  ng-repeat="ciclo in credCtrl.cicloPagamentos | orderBy : 'mes' | orderBy : 'ano'" value="{{ciclo._id}}" >{{ciclo.nome}}</option>
+            <select class="form-control select-lista" ng-model="debtCtrl.caixaSelecionado" ng-disabled="debtCtrl.tabDelete">
+              <option  ng-repeat="caixa in debtCtrl.caixas | orderBy : 'mes' | orderBy : 'ano'" value="{{caixa._id}}" >{{caixa.nome}}</option>
             </select>
         </div>
-        <!-- <field id="ciclo" grid="12 4" label="Ciclo de Pagamento"
-            model="credCtrl.cicloAtual.nome" readonly="true"></field> -->
+
         <div class="form-group col-xs-12 col-sm-3" >
-            <label>Tipo de Crédito</label>
-            <select class="form-control select-lista" ng-model="credCtrl.credito.tipo" ng-disabled="credCtrl.tabDelete">
-              <option  ng-repeat="tipo in credCtrl.listaTipo" value={{tipo}} >{{tipo}}</option>
+            <label>Tipo de Débito</label>
+            <select class="form-control select-lista" ng-model="debtCtrl.debito.tipo" ng-disabled="debtCtrl.tabDelete">
+              <option  ng-repeat="tipo in debtCtrl.listaTipo" value={{tipo}} >{{tipo}}</option>
             </select>
         </div>
+
         <div class="form-group col-xs-12 col-sm-3">
-            <label>Coletor</label>
-            <select class="form-control select-lista" ng-model="credCtrl.credito.coletor" ng-disabled="credCtrl.tabDelete">
-              <option ng-repeat="coletor in credCtrl.listaColetor" value="{{coletor}}">{{coletor}}</option>
+            <label>Pagador</label>
+            <select class="form-control select-lista" ng-model="debtCtrl.debito.pagador" ng-disabled="debtCtrl.tabDelete">
+              <option ng-repeat="pagador in debtCtrl.listaPagador" value="{{pagador}}">{{pagador}}</option>
             </select>
         </div>
+
         <div class="form-group col-xs-12 col-sm-3" >
-            <label>Status do Crédito</label>
-            <select class="form-control select-lista" ng-model="credCtrl.credito.status" ng-disabled="credCtrl.tabDelete">
-              <option ng-repeat="statuscred in credCtrl.listaStatusCred" model="{{statuscred}}">{{statuscred}}</option>
+          <label>Status do Débito</label>
+            <select class="form-control select-lista" ng-model="debtCtrl.debito.status" ng-disabled="debtCtrl.tabDelete">
+              <option ng-repeat="statusDebt in debtCtrl.listaStatusDebt" model="{{statusDebt}}">{{statusDebt}}</option>
             </select>
         </div>
+
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-sm-3" >
             <label>Status do Caixa</label>
-            <select class="form-control select-lista" ng-model="credCtrl.credito.statusCaixa" ng-disabled="credCtrl.tabDelete">
-              <option ng-repeat="statusCaixa in credCtrl.listaStatusCaixa" model="{{statusCaixa}}" >{{statusCaixa}}</option>
+            <select class="form-control select-lista" ng-model="debtCtrl.debito.statusCaixa" ng-disabled="debtCtrl.tabDelete">
+              <option ng-repeat="statusCaixa in debtCtrl.listaStatusCaixa" model="{{statusCaixa}}" >{{statusCaixa}}</option>
             </select>
         </div>
-        <field id="devedor" grid="12 3" placeholder="Informe o nome do devedor" label="Devedor"
-            model="credCtrl.credito.devedor" readonly="credCtrl.tabDelete"></field>
+
+        <field id="credor" grid="12 3" placeholder="Informe o nome do credor" label="Credor"
+            model="debtCtrl.debito.credor" readonly="debtCtrl.tabDelete"></field>
+
         <field id="descricao" grid="12 3" placeholder="Informe uma descrição" label="Descrição"
-            model="credCtrl.credito.descricao"  readonly="credCtrl.tabDelete" uppercase></field>
+            model="debtCtrl.debito.descricao"  readonly="debtCtrl.tabDelete" uppercase></field>
+
         <field id="valor" grid="12 3" placeholder="Informe o valor" label="Valor" type="number"
-            model="credCtrl.credito.valor" readonly="credCtrl.tabDelete"></field>
+            model="debtCtrl.debito.valor" readonly="debtCtrl.tabDelete"></field>
+
       </div>
         <div class="box-footer">
-          <button class="btn btn-primary" ng-click="credCtrl.create()" ng-if="credCtrl.tabCreate">Incluir</button>
-          <button class="btn btn-info" ng-click="credCtrl.update()" ng-if="credCtrl.tabUpdate">Alterar</button>
-          <button class="btn btn-danger" ng-click="credCtrl.delete()" ng-if="credCtrl.tabDelete">Excluir</button>
-          <button class="btn btn-default" ng-click="credCtrl.refresh()">Cancelar</button>
+          <button class="btn btn-primary" ng-click="debtCtrl.create()" ng-if="debtCtrl.tabCreate">Incluir</button>
+          <button class="btn btn-info" ng-click="debtCtrl.update()" ng-if="debtCtrl.tabUpdate">Alterar</button>
+          <button class="btn btn-danger" ng-click="debtCtrl.delete()" ng-if="debtCtrl.tabDelete">Excluir</button>
+          <button class="btn btn-default" ng-click="debtCtrl.refresh()">Cancelar</button>
         </div>
 </div>

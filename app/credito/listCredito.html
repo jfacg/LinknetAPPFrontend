@@ -2,8 +2,8 @@
 
   <div class="form-group col-xs-12 col-sm-2" >
       <label>Tipo de Crédito</label>
-      <select class="form-control select-lista" ng-model="credCtrl.cicloId" ng-change="credCtrl.change()">
-        <option  ng-repeat="ciclo in credCtrl.cicloPagamentos | orderBy : 'mes' | orderBy : 'ano'" value="{{ciclo._id}}" >{{ciclo.nome}}</option>
+      <select class="form-control select-lista" ng-model="credCtrl.caixaSelecionado" ng-change="credCtrl.change()">
+        <option  ng-repeat="caixa in credCtrl.caixas | orderBy : 'mes' | orderBy : 'ano'" value="{{caixa._id}}" >{{caixa.nome}}</option>
       </select>
   </div>
 
@@ -21,7 +21,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="credito in credCtrl.cicloAtual.creditos">
+        <tr ng-repeat="credito in credCtrl.creditos">
           <td>{{credito.coletor}}</td>
           <td>{{credito.tipo}}</td>
           <td>{{credito.devedor}}</td>

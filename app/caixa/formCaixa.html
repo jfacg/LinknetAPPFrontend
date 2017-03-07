@@ -1,0 +1,14 @@
+<div role="form">
+  <div class="box-body">
+    <field id="mes" grid="12 4" placeholder="Informe o mês" label="Mês" type="number"
+        model="caixaCtrl.caixa.mes" readonly="caixaCtrl.tabDelete"></field>
+    <field id="ano" grid="12 4" placeholder="Informe o ano" label="Ano" type="number"
+        model="caixaCtrl.caixa.ano" readonly="caixaCtrl.tabDelete"></field>
+  </div>
+  <div class="box-footer">
+    <button class="btn btn-primary" ng-click="caixaCtrl.create()" ng-if="caixaCtrl.tabCreate">Incluir</button>
+    <button class="btn btn-info" ng-click="caixaCtrl.update()" ng-if="caixaCtrl.tabUpdate">Alterar</button>
+    <button class="btn btn-danger" ng-click="caixaCtrl.delete()" ng-if="caixaCtrl.tabDelete">Excluir</button>
+    <button class="btn btn-default" ng-click="caixaCtrl.refresh()">Cancelar</button>
+  </div>
+</div>

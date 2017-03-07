@@ -1,27 +1,27 @@
 (function () {
-  angular.module('linknetApp').controller('CicloPagamentoCtrl', [
+  angular.module('linknetApp').controller('CaixaCtrl', [
     '$http',
     'msgs',
     'tabs',
-    CicloPagamentoController
+    CaixaController
   ])
 
-  function CicloPagamentoController($http, msgs, tabs) {
+  function CaixaController($http, msgs, tabs) {
     const vm = this
-    const url = 'http://localhost:3000/api/cicloPagamento'
+    const url = 'http://localhost:3000/api/caixa'
 
 //#####################################################################
     vm.refresh = function () {
       $http.get(url).then(function (response) {
-        vm.cicloPagamento = {}
-        vm.cicloPagamentos = response.data
+        vm.caixa = {}
+        vm.caixas = response.data
         tabs.show(vm, {tabList: true, tabCreate: true})
       })
     }
 //#####################################################################
     vm.create = function () {
-      vm.cicloPagamento.nome = vm.nomeCiclo(vm.cicloPagamento.mes, vm.cicloPagamento.ano)
-      $http.post(url, vm.cicloPagamento).then(function (response) {
+      vm.caixa.nome = vm.nomeCiclo(vm.caixa.mes, vm.caixa.ano)
+      $http.post(url, vm.caixa).then(function (response) {
         vm.refresh()
         msgs.addSucesso('Operação realizada com sucesso!!')
       }).catch(function (response) {
@@ -30,7 +30,7 @@
     }
 //#####################################################################
     vm.delete = function () {
-      const deleteUrl = `${url}/${vm.cicloPagamento._id}`
+      const deleteUrl = `${url}/${vm.caixa._id}`
       $http.delete(deleteUrl).then(function (response) {
         vm.refresh()
         msgs.addSucesso('Operação realizada com sucesso!!')
@@ -41,9 +41,9 @@
 
 //#####################################################################
         vm.update = function () {
-          vm.cicloPagamento.nome = vm.nomeCiclo(vm.cicloPagamento.mes, vm.cicloPagamento.ano)
-          const updateUrl = `${url}/${vm.cicloPagamento._id}`
-          $http.put(updateUrl, vm.cicloPagamento).then(function (response) {
+          vm.caixa.nome = vm.nomeCiclo(vm.caixa.mes, vm.caixa.ano)
+          const updateUrl = `${url}/${vm.caixa._id}`
+          $http.put(updateUrl, vm.caixa).then(function (response) {
             vm.refresh()
             msgs.addSucesso('Operação realizada com sucesso!!')
           }).catch(function (response) {
@@ -51,13 +51,13 @@
           })
         }
 //#####################################################################
-    vm.showTabUpdate = function (cicloPagamento) {
-      vm.cicloPagamento = cicloPagamento
+    vm.showTabUpdate = function (caixa) {
+      vm.caixa = caixa
       tabs.show(vm, {tabUpdate:true})
     }
 //#####################################################################
-    vm.showTabDelete = function (cicloPagamento) {
-      vm.cicloPagamento = cicloPagamento
+    vm.showTabDelete = function (caixa) {
+      vm.caixa = caixa
       tabs.show(vm, {tabDelete:true})
     }
 //#####################################################################
